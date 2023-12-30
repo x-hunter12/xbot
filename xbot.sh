@@ -24,7 +24,7 @@ chmod +x /usr/bin/*
 rm -rf bot.zip
 clear
 wget -q ${REPO}xdbot.zip
-unzip xbot.zip
+unzip xdbot.zip
 pip3 install -r kyt/requirements.txt
 
 clear
