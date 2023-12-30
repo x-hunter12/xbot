@@ -30,7 +30,7 @@ pip3 install -r kyt/requirements.txt
 clear
 echo ""
 echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
-echo -e "$u │ \e[1;97;101m                  ADD BOT PANEL               ${NC} ${u}│${NC}"
+echo -e "$u │ \e[1;97;101m                 ADD BOT PANEL                ${NC} ${u}│${NC}"
 echo -e "$u └────────────────────────────────────────────────┘${NC}"
 echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
 echo -e "$u │ ${g}Tutorial Creat Bot and ID Telegram                   ${NC}"
@@ -38,8 +38,8 @@ echo -e "$u │ ${g}Creat Bot and Token Bot : @BotFather                 ${NC}"
 echo -e "$u │ ${g}Info Id Telegram : @MissRose_bot perintah /info      ${NC}"
 echo -e "$u └────────────────────────────────────────────────┘${NC}"
 echo -e ""
-read -e -p "[*] Input your Bot Token : " bottoken
-read -e -p "[*] Input Your Id Telegram : " admin
+read -e -p "  [*] Input your Bot Token : " bottoken
+read -e -p "  [*] Input Your Id Telegram : " admin
 echo -e BOT_TOKEN='"'$bottoken'"' >> /usr/bin/kyt/var.txt
 echo -e ADMIN='"'$admin'"' >> /usr/bin/kyt/var.txt
 echo -e DOMAIN='"'$domain'"' >> /usr/bin/kyt/var.txt
@@ -48,7 +48,7 @@ echo -e HOST='"'$NS'"' >> /usr/bin/kyt/var.txt
 clear
 
 if [ -e /etc/systemd/system/xdxl-bot.service ]; then
-echo "OK"
+echo ""
 else
 rm -fr /etc/systemd/system/xdxl-bot.service
 fi
@@ -80,6 +80,8 @@ else
    sts_bot="${r}Offline${NC}"
 fi
 
+rm -fr /usr/bin/bot.zip
+rm -fr /usr/bin/xdbot.zip
 clear
 neofetch
 echo -e "  ${y} Your Data BOT Info"
