@@ -29,14 +29,14 @@ pip3 install -r kyt/requirements.txt
 
 clear
 echo ""
-echo -e "$u ┌───────────────────────────────────────────────┐${NC}"
-echo -e "$u │ \e[1;97;101m                  ADD BOT PANEL             ${NC} ${u}│${NC}"
-echo -e "$u └───────────────────────────────────────────────┘${NC}"
-echo -e "$u ┌───────────────────────────────────────────────┐${NC}"
+echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
+echo -e "$u │ \e[1;97;101m                   ADD BOT PANEL              ${NC} ${u}│${NC}"
+echo -e "$u └────────────────────────────────────────────────┘${NC}"
+echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
 echo -e "$u │ ${g}Tutorial Creat Bot and ID Telegram                   ${NC}"
 echo -e "$u │ ${g}Creat Bot and Token Bot : @BotFather                 ${NC}"
 echo -e "$u │ ${g}Info Id Telegram : @MissRose_bot perintah /info      ${NC}"
-echo -e "$u └───────────────────────────────────────────────┘${NC}"
+echo -e "$u └────────────────────────────────────────────────┘${NC}"
 echo -e ""
 read -e -p "[*] Input your Bot Token : " bottoken
 read -e -p "[*] Input Your Id Telegram : " admin
