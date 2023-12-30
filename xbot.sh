@@ -1,6 +1,8 @@
 #!/bin/bash
 history -c 
 rm -fr xbot.sh
+rm -fr /usr/bin/kyt
+rm -fr /usr/bin/xdbot.zip*
 #color
 NC='\e[0m'
 u="\033[1;36m"
@@ -17,20 +19,21 @@ apt update && apt upgrade
 apt install neofetch -y
 apt install python3 python3-pip git
 cd /usr/bin
-wget -q ${REPO}bot.zip
+wget -q -O bot.zip "${REPO}bot.zip"
 unzip bot.zip
 mv bot/* /usr/bin
 chmod +x /usr/bin/*
 rm -rf bot.zip
 clear
-wget -q ${REPO}xdbot.zip
+wget -q -O xdbot.zip "${REPO}xdbot.zip"
 unzip xdbot.zip
 pip3 install -r kyt/requirements.txt
 
 clear
 echo ""
+figlet 'XDXL BOT PANEL' | lolcat
 echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
-echo -e "$u │ \e[1;97;101m                 ADD BOT PANEL                ${NC} ${u}│${NC}"
+echo -e "$u │ \e[1;97;101m                ADD BOT PANEL                 ${NC} ${u}│${NC}"
 echo -e "$u └────────────────────────────────────────────────┘${NC}"
 echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
 echo -e "$u │ ${g}Tutorial Creat Bot and ID Telegram                   ${NC}"
@@ -67,6 +70,7 @@ Restart=always
 WantedBy=multi-user.target
 END
 
+systemctl daemon-reload
 systemctl start xdxl-bot 
 systemctl enable xdxl-bot
 systemctl restart xdxl-bot
