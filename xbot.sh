@@ -30,7 +30,7 @@ pip3 install -r kyt/requirements.txt
 clear
 echo ""
 echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
-echo -e "$u │ \e[1;97;101m                   ADD BOT PANEL              ${NC} ${u}│${NC}"
+echo -e "$u │ \e[1;97;101m                  ADD BOT PANEL               ${NC} ${u}│${NC}"
 echo -e "$u └────────────────────────────────────────────────┘${NC}"
 echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
 echo -e "$u │ ${g}Tutorial Creat Bot and ID Telegram                   ${NC}"
