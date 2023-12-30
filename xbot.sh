@@ -73,7 +73,7 @@ systemctl restart xdxl-bot
 cd /root
 
 # // STATUS SERVICE BOT
-bot_service=$(systemctl status xdxl-bot | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+bot_service=$(systemctl status xdxl-bot | grep active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 if [[ $bot_service == "running" ]]; then 
    sts_bot="${g}Online${NC}"
 else
