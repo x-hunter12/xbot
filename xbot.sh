@@ -31,7 +31,7 @@ pip3 install -r kyt/requirements.txt
 
 clear
 echo ""
-figlet 'XDXL BOT PANEL' | lolcat
+figlet 'XDXL STORE' | lolcat
 echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
 echo -e "$u │ \e[1;97;101m                ADD BOT PANEL                 ${NC} ${u}│${NC}"
 echo -e "$u └────────────────────────────────────────────────┘${NC}"
