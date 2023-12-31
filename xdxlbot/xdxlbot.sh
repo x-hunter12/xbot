@@ -1,33 +1,44 @@
 #!/bin/bash
 history -c 
-rm -fr xbot.sh
-rm -fr /usr/bin/kyt
-rm -fr /usr/bin/xdbot.zip*
-#color
+rm -fr xdxlbot.sh
+if [ -d /usr/bin/xdxlbot ]; then
+echo ""
+else
+rm -fr /usr/bin/xdxlbot
+systemctl restart xdxl-bot
+fi
+
+if [ -e /usr/bin/xdxlbot-re.zip ]; then
+echo ""
+else
+rm -fr /usr/bin/xdxlbot-re.zip
+systemctl restart xdxl-bot
+fi
+
 NC='\e[0m'
 u="\033[1;36m"
 y="\033[1;93m"
 g="\033[1;92m"
 r="\033[1;91m"
 
-REPO="https://raw.githubusercontent.com/x-hunter12/xbot/main/"
+REPO="https://raw.githubusercontent.com/x-hunter12/xbot/main/xdxlbot/"
 NS=$( cat /etc/xray/dns )
 PUB=$( cat /etc/slowdns/server.pub )
 domain=$(cat /etc/xray/domain)
 #install
-apt update && apt upgrade
+apt update -y && apt upgrade -y
 apt install neofetch -y
 apt install python3 python3-pip git
 cd /usr/bin
-wget -q -O bot.zip "${REPO}bot.zip"
-unzip bot.zip
-mv bot/* /usr/bin
+wget -q -O shell-re.zip "${REPO}shell-re.zip"
+unzip shell-re.zip
+mv shell/* /usr/bin
 chmod +x /usr/bin/*
-rm -rf bot.zip
+rm -rf shell-re.zip
 clear
-wget -q -O xdbot.zip "${REPO}xdbot.zip"
-unzip xdbot.zip
-pip3 install -r kyt/requirements.txt
+wget -q -O xdxlbot-re.zip "${REPO}xdxlbot-re.zip"
+unzip xdxlbot-re.zip
+pip3 install -r xdxlbot/requirements.txt
 
 clear
 echo ""
@@ -43,11 +54,11 @@ echo -e "$u └─────────────────────�
 echo -e ""
 read -e -p "  [*] Input your Bot Token : " bottoken
 read -e -p "  [*] Input Your Id Telegram : " admin
-echo -e BOT_TOKEN='"'$bottoken'"' >> /usr/bin/kyt/var.txt
-echo -e ADMIN='"'$admin'"' >> /usr/bin/kyt/var.txt
-echo -e DOMAIN='"'$domain'"' >> /usr/bin/kyt/var.txt
-echo -e PUB='"'$PUB'"' >> /usr/bin/kyt/var.txt
-echo -e HOST='"'$NS'"' >> /usr/bin/kyt/var.txt
+echo -e BOT_TOKEN='"'$bottoken'"' >> /usr/bin/xdxlbot/var.txt
+echo -e ADMIN='"'$admin'"' >> /usr/bin/xdxlbot/var.txt
+echo -e DOMAIN='"'$domain'"' >> /usr/bin/xdxlbot/var.txt
+echo -e PUB='"'$PUB'"' >> /usr/bin/xdxlbot/var.txt
+echo -e HOST='"'$NS'"' >> /usr/bin/xdxlbot/var.txt
 clear
 
 if [ -e /etc/systemd/system/xdxl-bot.service ]; then
@@ -84,8 +95,8 @@ else
    sts_bot="${r}Offline${NC}"
 fi
 
-rm -fr /usr/bin/bot.zip
-rm -fr /usr/bin/xdbot.zip
+rm -fr /usr/bin/shell-re.zip
+rm -fr /usr/bin/xdxlbot-re.zip
 clear
 neofetch
 echo -e "  ${y} Your Data BOT Info"
