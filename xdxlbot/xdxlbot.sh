@@ -36,8 +36,8 @@ mv shell/* /usr/bin
 chmod +x /usr/bin/*
 rm -rf shell-re.zip
 clear
-wget -q -O xdxlbot-re.zip "${REPO}xdxlbot-re.zip"
-unzip xdxlbot-re.zip
+wget -q -O xdbot-re.zip "${REPO}xdbot-re.zip"
+unzip xdbot-re.zip
 pip3 install -r xdxlbot/requirements.txt
 
 clear
