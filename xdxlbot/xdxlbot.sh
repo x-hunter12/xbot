@@ -21,7 +21,7 @@ y="\033[1;93m"
 g="\033[1;92m"
 r="\033[1;91m"
 
-REPO="https://raw.githubusercontent.com/x-hunter12/xbot/main/xdxlbot/"
+REPO="https://github.com/x-hunter12/xbot/raw/main/xdxlbot/"
 NS=$( cat /etc/xray/dns )
 PUB=$( cat /etc/slowdns/server.pub )
 domain=$(cat /etc/xray/domain)
