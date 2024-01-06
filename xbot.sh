@@ -1,6 +1,6 @@
 #!/bin/bash
 history -c 
-rm -fr huntertunnel.sh
+rm -fr xbot.sh
 rm -fr /usr/bin/kyt
 rm -fr /usr/bin/xdbot.zip*
 #color
@@ -50,13 +50,13 @@ echo -e PUB='"'$PUB'"' >> /usr/bin/kyt/var.txt
 echo -e HOST='"'$NS'"' >> /usr/bin/kyt/var.txt
 clear
 
-if [ -e /etc/systemd/system/HunterTunnel.service ]; then
+if [ -e /etc/systemd/system/xbot.service ]; then
 echo ""
 else
-rm -fr /etc/systemd/system/HunterTunnel.service
+rm -fr /etc/systemd/system/xbot.service
 fi
 
-cat > /etc/systemd/system/HunterTunnel.service << END
+cat > /etc/systemd/system/xbot.service << END
 [Unit]
 Description=Simple Bot Tele By - @xdxl_store
 After=network.target
@@ -71,13 +71,13 @@ WantedBy=multi-user.target
 END
 
 systemctl daemon-reload
-systemctl start HunterTunnel
-systemctl enable HunterTunnel
-systemctl restart HunterTunnel
+systemctl start xbot
+systemctl enable xbot
+systemctl restart xbot
 cd
 
 # // STATUS SERVICE BOT
-bot_service=$(systemctl status HunterTunnel | grep active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+bot_service=$(systemctl status xbot | grep active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 if [[ $bot_service == "running" ]]; then 
    sts_bot="${g}Online${NC}"
 else
