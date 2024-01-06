@@ -1,6 +1,6 @@
 #!/bin/bash
 history -c 
-rm -fr xbot.sh
+rm -fr huntertunnel.sh
 rm -fr /usr/bin/kyt
 rm -fr /usr/bin/xdbot.zip*
 #color
@@ -31,7 +31,7 @@ pip3 install -r kyt/requirements.txt
 
 clear
 echo ""
-figlet 'XDXL STORE' | lolcat
+figlet 'HunterTunnel' | lolcat
 echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
 echo -e "$u │ \e[1;97;101m                ADD BOT PANEL                 ${NC} ${u}│${NC}"
 echo -e "$u └────────────────────────────────────────────────┘${NC}"
@@ -50,13 +50,13 @@ echo -e PUB='"'$PUB'"' >> /usr/bin/kyt/var.txt
 echo -e HOST='"'$NS'"' >> /usr/bin/kyt/var.txt
 clear
 
-if [ -e /etc/systemd/system/xdxl-bot.service ]; then
+if [ -e /etc/systemd/system/HunterTunnel.service ]; then
 echo ""
 else
-rm -fr /etc/systemd/system/xdxl-bot.service
+rm -fr /etc/systemd/system/HunterTunnel.service
 fi
 
-cat > /etc/systemd/system/xdxl-bot.service << END
+cat > /etc/systemd/system/HunterTunnel.service << END
 [Unit]
 Description=Simple Bot Tele By - @xdxl_store
 After=network.target
@@ -71,13 +71,13 @@ WantedBy=multi-user.target
 END
 
 systemctl daemon-reload
-systemctl start xdxl-bot 
-systemctl enable xdxl-bot
-systemctl restart xdxl-bot
-cd /root
+systemctl start HunterTunnel
+systemctl enable HunterTunnel
+systemctl restart HunterTunnel
+cd
 
 # // STATUS SERVICE BOT
-bot_service=$(systemctl status xdxl-bot | grep active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+bot_service=$(systemctl status HunterTunnel | grep active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 if [[ $bot_service == "running" ]]; then 
    sts_bot="${g}Online${NC}"
 else
