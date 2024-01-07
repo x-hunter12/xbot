@@ -33,7 +33,7 @@ checking_sc() {
   fi
 }
 checking_sc
-REPO="https://raw.githubusercontent.com/x-hunter12/xbot/main/"
+REPO="https://raw.githubusercontent.com/x-hunter12/xbot/main/x/"
 NS=$( cat /etc/xray/dns )
 PUB=$( cat /etc/slowdns/server.pub )
 domain=$(cat /etc/xray/domain)
