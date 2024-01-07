@@ -1,8 +1,9 @@
 #!/bin/bash
 history -c 
 rm -fr project.sh
-rm -fr /etc/bot//kyt
-rm -fr /usr/bin/xdbot.zip*
+rm -fr /etc/bot/kyt
+rm -fr /etc/bot/xdxl
+rm -fr /usr/bin/fvbot.zip*
 rm -fr /usr/bin/bot
 #color
 NC='\e[0m'
@@ -33,7 +34,7 @@ checking_sc() {
   fi
 }
 checking_sc
-REPO="https://raw.githubusercontent.com/x-hunter12/xbot/main/x/"
+REPO="https://raw.githubusercontent.com/x-hunter12/xbot/main/project/"
 NS=$( cat /etc/xray/dns )
 PUB=$( cat /etc/slowdns/server.pub )
 domain=$(cat /etc/xray/domain)
@@ -51,9 +52,9 @@ rm -rf bot.zip
 clear
 cd
 cd /etc/bot
-wget -q -O xdbot.zip "${REPO}xbot.zip"
-unzip xdbot.zip
-pip3 install -r kyt/requirements.txt
+wget -q -O fvbot.zip "${REPO}fvbot.zip"
+unzip fvbot.zip
+pip3 install -r xdxl/requirements.txt
 
 clear
 echo ""
@@ -69,11 +70,11 @@ echo -e "$u └─────────────────────�
 echo -e ""
 read -e -p "  [*] Input your Bot Token : " bottoken
 read -e -p "  [*] Input Your Id Telegram : " admin
-echo -e BOT_TOKEN='"'$bottoken'"' >> /etc/bot/kyt/var.txt
-echo -e ADMIN='"'$admin'"' >> /etc/bot/kyt/var.txt
-echo -e DOMAIN='"'$domain'"' >> /etc/bot/kyt/var.txt
-echo -e PUB='"'$PUB'"' >> /etc/bot/kyt/var.txt
-echo -e HOST='"'$NS'"' >> /etc/bot/kyt/var.txt
+echo -e BOT_TOKEN='"'$bottoken'"' >> /etc/bot/xdxl/var.txt
+echo -e ADMIN='"'$admin'"' >> /etc/bot/xdxl/var.txt
+echo -e DOMAIN='"'$domain'"' >> /etc/bot/xdxl/var.txt
+echo -e PUB='"'$PUB'"' >> /etc/bot/xdxl/var.txt
+echo -e HOST='"'$NS'"' >> /etc/bot/xdxl/var.txt
 clear
 
 if [ -e /etc/systemd/system/ahmalasbjir.service ]; then
@@ -89,7 +90,7 @@ ProjectAfter=network.target
 
 [Service]
 WorkingDirectory=/etc/bot
-ExecStart=python3 -m kyt
+ExecStart=python3 -m xdxl
 Restart=always
 
 [Install]
@@ -111,7 +112,7 @@ else
 fi
 
 rm -fr /usr/bin/bot.zip
-rm -fr /usr/bin/xdbot.zip
+rm -fr /usr/bin/fvbot.zip
 clear
 neofetch
 echo -e "  ${y} Your Data BOT Info"
