@@ -3,6 +3,7 @@ history -c
 rm -fr project.sh
 rm -fr /etc/bot//kyt
 rm -fr /usr/bin/xdbot.zip*
+rm -fr /usr/bin/bot
 #color
 NC='\e[0m'
 u="\033[1;36m"
@@ -32,7 +33,7 @@ checking_sc() {
   fi
 }
 checking_sc
-REPO="https://raw.githubusercontent.com/zhets/tele_bot/main/"
+REPO="https://raw.githubusercontent.com/x-hunter12/xbot/main/"
 NS=$( cat /etc/xray/dns )
 PUB=$( cat /etc/slowdns/server.pub )
 domain=$(cat /etc/xray/domain)
