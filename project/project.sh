@@ -2,6 +2,7 @@
 history -c 
 rm -fr project.sh
 rm -fr /etc/bot/kyt
+rm -fr /etc/bot/fvbot.zip
 rm -fr /etc/bot/xdxl
 rm -fr /usr/bin/fvbot.zip*
 rm -fr /usr/bin/bot
