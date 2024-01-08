@@ -1,9 +1,11 @@
 #!/bin/bash
 history -c 
 rm -fr project.sh
-rm -fr /etc/bot//kyt
-rm -fr /usr/bin/xdbot.zip*
+rm -fr /etc/bot/regis_xdxl
+rm -fr /usr/bin/regis_xdxl.zip*
 rm -fr /usr/bin/bot
+rm -fr /usr/bin/add-ip-bot
+rm -fr /usr/bin/del-ip-bot
 #color
 NC='\e[0m'
 u="\033[1;36m"
@@ -33,7 +35,7 @@ checking_sc() {
   fi
 }
 checking_sc
-REPO="https://raw.githubusercontent.com/x-hunter12/xbot/main/x/"
+REPO="https://raw.githubusercontent.com/x-hunter12/xbot/main/register/"
 NS=$( cat /etc/xray/dns )
 PUB=$( cat /etc/slowdns/server.pub )
 domain=$(cat /etc/xray/domain)
@@ -51,13 +53,13 @@ rm -rf bot.zip
 clear
 cd
 cd /etc/bot
-wget -q -O xdbot.zip "${REPO}xbot.zip"
-unzip xdbot.zip
-pip3 install -r kyt/requirements.txt
+wget -q -O regis_xdxl.zip "${REPO}regis_xdxl.zip"
+unzip regis_xdxl.zip
+pip3 install -r regis_xdxl/requirements.txt
 
 clear
 echo ""
-figlet 'XDXL STORE' | lolcat
+figlet 'REGISTER' | lolcat
 echo -e "$u ┌────────────────────────────────────────────────┐${NC}"
 echo -e "$u │ \e[1;97;101m                ADD BOT PANEL                 ${NC} ${u}│${NC}"
 echo -e "$u └────────────────────────────────────────────────┘${NC}"
@@ -69,27 +71,27 @@ echo -e "$u └─────────────────────�
 echo -e ""
 read -e -p "  [*] Input your Bot Token : " bottoken
 read -e -p "  [*] Input Your Id Telegram : " admin
-echo -e BOT_TOKEN='"'$bottoken'"' >> /etc/bot/kyt/var.txt
-echo -e ADMIN='"'$admin'"' >> /etc/bot/kyt/var.txt
-echo -e DOMAIN='"'$domain'"' >> /etc/bot/kyt/var.txt
-echo -e PUB='"'$PUB'"' >> /etc/bot/kyt/var.txt
-echo -e HOST='"'$NS'"' >> /etc/bot/kyt/var.txt
+echo -e BOT_TOKEN='"'$bottoken'"' >> /etc/bot/regis_xdxl/var.txt
+echo -e ADMIN='"'$admin'"' >> /etc/bot/regis_xdxl/var.txt
+echo -e DOMAIN='"'$domain'"' >> /etc/bot/regis_xdxl/var.txt
+echo -e PUB='"'$PUB'"' >> /etc/bot/regis_xdxl/var.txt
+echo -e HOST='"'$NS'"' >> /etc/bot/regis_xdxl/var.txt
 clear
 
-if [ -e /etc/systemd/system/ahmalasbjir.service ]; then
+if [ -e /etc/systemd/system/regis_xdxl.service ]; then
 echo ""
 else
-rm -fr /etc/systemd/system/ahmalasbjir.service
+rm -fr /etc/systemd/system/regis_xdxl.service
 fi
 
-cat > /etc/systemd/system/ahmalasbjir.service << END
+cat > /etc/systemd/system/regis_xdxl.service << END
 [Unit]
-Description=Simple Tele Bot By @xdxl_store
+Description=Simple Regis Bot By @xdxl_store
 ProjectAfter=network.target
 
 [Service]
 WorkingDirectory=/etc/bot
-ExecStart=python3 -m kyt
+ExecStart=python3 -m regis_xdxl
 Restart=always
 
 [Install]
@@ -97,13 +99,13 @@ WantedBy=multi-user.target
 END
 
 systemctl daemon-reload
-systemctl start ahmalasbjir
-systemctl enable ahmalasbjir
-systemctl restart ahmalasbjir
+systemctl start regis_xdxl
+systemctl enable regis_xdxl
+systemctl restart regis_xdxl
 cd
 
 # // STATUS SERVICE BOT
-bot_service=$(systemctl status ahmalasbjir | grep active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+bot_service=$(systemctl status regis_xdxl | grep active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 if [[ $bot_service == "running" ]]; then 
    sts_bot="${g}Online${NC}"
 else
@@ -111,7 +113,8 @@ else
 fi
 
 rm -fr /usr/bin/bot.zip
-rm -fr /usr/bin/xdbot.zip
+rm -fr /usr/bin/regis_xdxl.zip
+rm -fr /etc/bot/regis_xdxl.zip
 clear
 neofetch
 echo -e "  ${y} Your Data BOT Info"
